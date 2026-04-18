@@ -461,6 +461,15 @@
     .section { padding: var(--space-8) 0; border-bottom: 1px solid var(--line); }
     .section__head { max-width: 52ch; margin-bottom: var(--space-6); }
     .section__head p { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    /* Full-bleed band; inner .wrap keeps alignment with header (avoid margin:0 on .wrap) */
+    .section--band {
+      margin: 0;
+      border: 0;
+      padding: var(--space-8) 0;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--line);
+    }
+    .section--band .section__head { margin-bottom: var(--space-8); }
 
     /* Segmented control */
     .segmented {
@@ -1693,63 +1702,65 @@
       </div>
     </section>
 
-    <section class="section wrap reveal" id="treatments" aria-labelledby="treat-title" style="background:var(--surface-2);margin:0;border:0">
-      <div class="section__head">
-        <p class="eyebrow">Treatments</p>
-        <h2 id="treat-title">Injection-led options — individual to you.</h2>
-        <p>Nothing is “off the shelf.” Suitability depends on examination, history, and shared decision-making.</p>
+    <section class="section section--band reveal" id="treatments" aria-labelledby="treat-title">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="eyebrow">Treatments</p>
+          <h2 id="treat-title">Injection-led options — individual to you.</h2>
+          <p>Nothing is “off the shelf.” Suitability depends on examination, history, and shared decision-making.</p>
+        </div>
+        <article class="band reveal">
+          <div class="band__media">
+            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          </div>
+          <div class="band__body">
+            <div class="band__body__grid">
+              <div class="band__body__intro">
+                <p class="band__tag">Joint support</p>
+                <h3>Hyaluronic acid</h3>
+              </div>
+              <div class="band__body__main">
+                <p>May help pain and function in suitable osteoarthritis — discussed in context of your scans and goals.</p>
+                <a class="band__cta" href="#book">Discuss suitability →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="band band--flip reveal">
+          <div class="band__media">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          </div>
+          <div class="band__body">
+            <div class="band__body__grid">
+              <div class="band__body__intro">
+                <p class="band__tag">Inflammation</p>
+                <h3>Cortisone injections</h3>
+              </div>
+              <div class="band__body__main">
+                <p>Targeted anti-inflammatory treatment when inflammation is driving pain and limiting recovery.</p>
+                <a class="band__cta" href="#book">Discuss suitability →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="band reveal">
+          <div class="band__media">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          </div>
+          <div class="band__body">
+            <div class="band__body__grid">
+              <div class="band__body__intro">
+                <p class="band__tag">Advanced options</p>
+                <h3>PRP · Prolotherapy · Spinal injections</h3>
+              </div>
+              <div class="band__body__main">
+                <p>Including platelet-rich plasma, prolotherapy, and spinal procedures where the clinical picture supports them — always after assessment.</p>
+                <a class="band__cta" href="#book">Discuss suitability →</a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-      <article class="band reveal">
-        <div class="band__media">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
-        </div>
-        <div class="band__body">
-          <div class="band__body__grid">
-            <div class="band__body__intro">
-              <p class="band__tag">Joint support</p>
-              <h3>Hyaluronic acid</h3>
-            </div>
-            <div class="band__body__main">
-              <p>May help pain and function in suitable osteoarthritis — discussed in context of your scans and goals.</p>
-              <a class="band__cta" href="#book">Discuss suitability →</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="band band--flip reveal">
-        <div class="band__media">
-          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
-        </div>
-        <div class="band__body">
-          <div class="band__body__grid">
-            <div class="band__body__intro">
-              <p class="band__tag">Inflammation</p>
-              <h3>Cortisone injections</h3>
-            </div>
-            <div class="band__body__main">
-              <p>Targeted anti-inflammatory treatment when inflammation is driving pain and limiting recovery.</p>
-              <a class="band__cta" href="#book">Discuss suitability →</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="band reveal">
-        <div class="band__media">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
-        </div>
-        <div class="band__body">
-          <div class="band__body__grid">
-            <div class="band__body__intro">
-              <p class="band__tag">Advanced options</p>
-              <h3>PRP · Prolotherapy · Spinal injections</h3>
-            </div>
-            <div class="band__body__main">
-              <p>Including platelet-rich plasma, prolotherapy, and spinal procedures where the clinical picture supports them — always after assessment.</p>
-              <a class="band__cta" href="#book">Discuss suitability →</a>
-            </div>
-          </div>
-        </div>
-      </article>
     </section>
 
     <section class="section wrap reveal" id="specialist" aria-labelledby="spec-title">
