@@ -3,36 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My MSK Clinic — Musculoskeletal care in Burnley</title>
+  <title>MyMSK Clinic — MSK &amp; injection care in Burnley</title>
+  <meta name="theme-color" content="#f4f7f6">
   <meta name="description" content="Private MSK clinic for back, joint and muscle pain. In-house ultrasound and ultrasound-guided injections. Dual-qualified GP and osteopath.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
   <style>
-    /* ——— Design system: My MSK Clinic (demo) ——— */
+    /* ——— MyMSK light marketing (aligned with studio Next.js spec, light theme) ——— */
     :root {
-      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --font-display: "Fraunces", "Georgia", serif;
-      --canvas: #f3f1ed;
-      --surface: #fffcf8;
-      --surface-2: #f7f4ef;
-      --ink: #161412;
-      --ink-2: #3d3a36;
-      --muted: #6b6560;
-      --line: rgba(22, 20, 18, 0.09);
-      --line-strong: rgba(22, 20, 18, 0.14);
-      --accent: #1a5c54;
-      --accent-hover: #144a44;
-      --accent-soft: rgba(26, 92, 84, 0.09);
-      --accent-fg: #e8f5f3;
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+      --canvas: #f4f7f6;
+      --surface: #ffffff;
+      --surface-2: #eef4f2;
+      --ink: #0f1720;
+      --ink-2: #3d4f4c;
+      --muted: #5c6d6a;
+      --line: rgba(15, 23, 32, 0.08);
+      --line-strong: rgba(15, 23, 32, 0.14);
+      --accent: #0d9488;
+      --accent-hover: #0f766e;
+      --accent-soft: rgba(13, 148, 136, 0.12);
+      --accent-fg: #042f2e;
       --warn-soft: rgba(180, 120, 40, 0.12);
       --shadow-sm: 0 1px 2px rgba(22, 20, 18, 0.04);
       --shadow-md: 0 8px 24px rgba(22, 20, 18, 0.06), 0 2px 6px rgba(22, 20, 18, 0.04);
       --shadow-lg: 0 20px 50px rgba(22, 20, 18, 0.08), 0 6px 16px rgba(22, 20, 18, 0.05);
+      /* Match Next/Tailwind: rounded-sm 8px, md 12px, lg 16px */
       --radius-xs: 8px;
-      --radius-sm: 12px;
-      --radius-md: 16px;
-      --radius-lg: 22px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
       --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
@@ -42,14 +44,18 @@
       --space-7: 48px;
       --space-8: 72px;
       --space-9: 96px;
-      --max: 1120px;
+      --max: 1400px;
       --header-h: 64px;
-      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --dur: 0.22s;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-h) + 12px);
+      color-scheme: light;
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -90,8 +96,8 @@
       letter-spacing: -0.02em;
       line-height: 1.2;
     }
-    h1 { font-size: clamp(2rem, 4.2vw, 2.75rem); margin: 0 0 var(--space-4); }
-    h2 { font-size: clamp(1.5rem, 2.5vw, 1.85rem); margin: 0 0 var(--space-4); }
+    h1 { font-size: clamp(2.25rem, 5vw, 3.35rem); margin: 0 0 var(--space-4); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); margin: 0 0 var(--space-4); letter-spacing: -0.03em; }
     h3 { font-size: 1.125rem; margin: 0 0 var(--space-2); font-family: var(--font-sans); font-weight: 600; }
     p { margin: 0 0 var(--space-4); }
     a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -103,7 +109,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
       margin: 0 0 var(--space-3);
     }
 
@@ -127,7 +133,7 @@
     .btn--primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
     }
     .btn--primary:hover { background: var(--accent-hover); color: #fff; box-shadow: var(--shadow-md); }
     .btn--ghost {
@@ -179,9 +185,15 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
-      transition: box-shadow var(--dur) var(--ease);
+      transform: translateY(0);
+      transition: box-shadow var(--dur) var(--ease), transform 0.32s cubic-bezier(0.34, 1.25, 0.64, 1);
     }
     .site-header.is-scrolled { box-shadow: var(--shadow-sm); }
+    .site-header.is-header-hidden { transform: translateY(-100%); }
+    @media (prefers-reduced-motion: reduce) {
+      .site-header { transition: box-shadow var(--dur) var(--ease); }
+      .site-header.is-header-hidden { transform: translateY(0); }
+    }
     .site-header__inner {
       min-height: 52px;
       display: flex;
@@ -197,24 +209,31 @@
       text-decoration: none;
       color: inherit;
     }
-    .brand__mark { flex-shrink: 0; }
-    .brand__text { display: flex; flex-direction: column; gap: 2px; line-height: 1.15; }
-    .brand__name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--ink); }
-    .brand__product {
-      font-size: 0.625rem;
+    .brand__mark {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-family: var(--font-display);
+      font-size: 0.875rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
     }
-    .brand__tag { font-size: 0.6875rem; color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
+    .brand__text { display: flex; flex-direction: column; gap: 0; line-height: 1.2; }
+    .brand__name { font-family: var(--font-display); font-weight: 600; font-size: 0.875rem; letter-spacing: -0.02em; color: var(--ink); }
+    .brand__tag { font-size: 0.625rem; color: var(--muted); font-weight: 500; }
 
     .nav-main {
       display: none;
       align-items: center;
       gap: var(--space-1);
     }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .nav-main { display: flex; }
     }
     .nav-main a {
@@ -223,9 +242,15 @@
       font-weight: 600;
       color: var(--ink-2);
       text-decoration: none;
-      border-radius: var(--radius-xs);
+      border-radius: var(--radius-sm);
     }
     .nav-main a:hover { background: var(--surface-2); color: var(--ink); }
+    .nav-main a.nav-main__demo {
+      margin-left: var(--space-1);
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-main a.nav-main__demo:hover { background: transparent; color: var(--ink-2); }
 
     .header-actions { display: flex; align-items: center; gap: var(--space-2); }
     .menu-toggle {
@@ -238,7 +263,7 @@
       background: var(--surface);
       cursor: pointer;
     }
-    @media (min-width: 900px) { .menu-toggle { display: none; } }
+    @media (min-width: 1024px) { .menu-toggle { display: none; } }
 
     .mobile-drawer {
       position: fixed;
@@ -278,15 +303,32 @@
 
     /* Hero */
     .hero {
+      position: relative;
+      isolation: isolate;
       padding: var(--space-7) 0 var(--space-8);
       border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -25% -15% auto;
+      height: 85%;
+      max-height: 520px;
+      background:
+        radial-gradient(ellipse 75% 55% at 18% 28%, rgba(13, 148, 136, 0.14), transparent 58%),
+        radial-gradient(ellipse 65% 48% at 88% 12%, rgba(13, 148, 136, 0.09), transparent 52%);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero__grid {
+      position: relative;
+      z-index: 1;
       display: grid;
       gap: var(--space-7);
       align-items: start;
     }
-    @media (min-width: 960px) {
+    @media (min-width: 1024px) {
       .hero__grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
     }
     .hero__lead { font-size: 1.0625rem; color: var(--ink-2); max-width: 38ch; }
@@ -493,7 +535,11 @@
       gap: var(--space-6);
       align-items: center;
     }
-    @media (min-width: 900px) { .spec-layout { grid-template-columns: 1fr 1.1fr; } }
+    @media (min-width: 1024px) { .spec-layout { grid-template-columns: 1fr 1.1fr; } }
+    @media (max-width: 899px) {
+      .spec-layout > figure { order: 2; }
+      .spec-layout > div { order: 1; }
+    }
 
     .spec-visual {
       aspect-ratio: 4/5;
@@ -558,6 +604,276 @@
     }
     .review-card footer { font-size: 0.8125rem; color: var(--muted); font-weight: 600; }
 
+    /* ——— Practice analytics (illustrative dashboard) ——— */
+    .section--analytics {
+      background: linear-gradient(165deg, #e8e5df 0%, var(--canvas) 38%, var(--canvas) 100%);
+    }
+    .dash-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      max-width: 64ch;
+      margin: 0 0 var(--space-6);
+      line-height: 1.5;
+    }
+    .dash-kpi-grid {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: var(--space-6);
+    }
+    @media (min-width: 720px) {
+      .dash-kpi-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .dash-kpi {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .dash-kpi::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0.45;
+    }
+    .dash-kpi--attention::after {
+      background: #9a7b4c;
+      opacity: 0.75;
+    }
+    .dash-kpi__label {
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--space-2);
+    }
+    .dash-kpi__value {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+    .dash-kpi__hint {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0;
+    }
+    .dash-kpi__hint.is-warn { color: #7a5c28; }
+
+    .dash-charts {
+      display: grid;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    @media (min-width: 920px) {
+      .dash-charts { grid-template-columns: 1.2fr 0.8fr; align-items: stretch; }
+    }
+
+    .dash-chart-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-md);
+    }
+    .dash-chart-card__head {
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--line);
+    }
+    .dash-chart-card__head h3 {
+      font-size: 1rem;
+      margin: 0 0 var(--space-1);
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+    .dash-chart-card__head p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .dash-chart-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .dash-chart-svg .grid-line { stroke: var(--line); stroke-width: 1; }
+    .dash-chart-svg .axis { stroke: var(--line-strong); stroke-width: 1; }
+    .dash-chart-svg .lbl { font-family: var(--font-sans); font-size: 10px; fill: var(--muted); font-weight: 600; }
+    .dash-chart-svg .bar-pend {
+      fill: #9a8b7c;
+      opacity: 0.92;
+      transform-origin: center bottom;
+      transform: scaleY(0);
+      transition: transform 0.85s var(--ease);
+    }
+    .dash-chart-svg .bar-comp {
+      fill: var(--accent);
+      transform-origin: center bottom;
+      transform: scaleY(0);
+      transition: transform 0.85s var(--ease) 0.08s;
+    }
+    .dash-charts--animated .dash-chart-svg .bar-pend,
+    .dash-charts--animated .dash-chart-svg .bar-comp {
+      transform: scaleY(1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dash-chart-svg .bar-pend,
+      .dash-chart-svg .bar-comp { transform: scaleY(1); transition: none; }
+    }
+
+    .dash-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-5);
+      margin-top: var(--space-4);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .dash-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .dash-legend i {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .dash-legend i.pend { background: #9a8b7c; }
+    .dash-legend i.comp { background: var(--accent); }
+
+    .dash-donut-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      padding: var(--space-2) 0 var(--space-3);
+    }
+    .dash-donut {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--accent) 0deg 280.8deg,
+        #4d7f79 280.8deg 338.4deg,
+        var(--line) 338.4deg 360deg
+      );
+      display: grid;
+      place-items: center;
+      box-shadow:
+        inset 0 0 0 16px var(--surface),
+        var(--shadow-sm);
+    }
+    .dash-donut__hole {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: var(--surface);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .dash-donut__hole strong {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .dash-donut__hole small {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .dash-sat-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-width: 168px;
+    }
+    .dash-sat-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .dash-sat-list li:last-child { border-bottom: none; }
+    .dash-sat-list .v { font-variant-numeric: tabular-nums; color: var(--accent); }
+
+    .dash-mix {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-md);
+    }
+    .dash-mix h3 {
+      font-size: 1rem;
+      margin: 0 0 var(--space-1);
+      font-family: var(--font-sans);
+    }
+    .dash-mix > p {
+      margin: 0 0 var(--space-5);
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    .dash-hbar__row {
+      display: grid;
+      grid-template-columns: minmax(108px, 150px) 1fr 40px;
+      gap: var(--space-3);
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+    .dash-hbar__row:last-child { margin-bottom: 0; }
+    .dash-hbar__label { font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); }
+    .dash-hbar__track {
+      height: 11px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .dash-hbar__fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #2d6d64);
+      width: 0;
+      transition: width 1s var(--ease);
+    }
+    .dash-charts--animated .dash-hbar__fill { width: var(--w, 0%); }
+    .dash-hbar__pct {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      text-align: right;
+    }
+
     /* Journey */
     .journey {
       display: grid;
@@ -594,7 +910,7 @@
       display: grid;
       gap: var(--space-6);
     }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .cta-block { grid-template-columns: 1fr 1fr; align-items: start; }
     }
 
@@ -724,12 +1040,12 @@
       border-top: 1px solid var(--line);
       box-shadow: 0 -4px 24px rgba(22, 20, 18, 0.06);
     }
-    @media (min-width: 900px) { .bottom-bar { display: none; } }
+    @media (min-width: 1024px) { .bottom-bar { display: none; } }
     .bottom-bar .btn { flex: 1; min-height: 48px; }
 
     .phone-full { display: none; }
     .phone-short { display: inline; }
-    @media (min-width: 900px) {
+    @media (min-width: 1280px) {
       .phone-full { display: inline; }
       .phone-short { display: none; }
     }
@@ -745,12 +1061,12 @@
       align-items: flex-end;
       gap: var(--space-2);
     }
-    @media (min-width: 900px) { .fab-wrap { bottom: var(--space-5); } }
+    @media (min-width: 1024px) { .fab-wrap { bottom: var(--space-5); } }
     .fab-main {
       width: 52px; height: 52px;
       border-radius: 50%;
-      border: 1px solid var(--line-strong);
-      background: var(--ink);
+      border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+      background: var(--accent);
       color: #fff;
       cursor: pointer;
       display: grid;
@@ -785,38 +1101,314 @@
     }
     .fab-panel a:hover { background: var(--surface-2); }
 
+    /* Pre-header strip */
+    .pre-header {
+      background: color-mix(in srgb, var(--surface) 92%, var(--surface-2));
+      border-bottom: 1px solid var(--line);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .pre-header__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+    }
+    .pre-header__meta { font-family: ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.04em; text-transform: none; color: var(--ink-2); }
+    .pre-header a { color: var(--ink); text-decoration: none; font-weight: 600; }
+    .pre-header a:hover { color: var(--accent); }
+
+    /* Hero visual (editorial image) */
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 280px;
+      box-shadow: var(--shadow-lg);
+      background: var(--surface-2);
+    }
+    @media (min-width: 960px) { .hero-visual { min-height: 380px; } }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    @media (min-width: 960px) { .hero-visual img { min-height: 380px; } }
+    .hero-visual__cap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: var(--space-5);
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.92));
+      border-top: 1px solid var(--line);
+    }
+    .hero-visual__cap p { margin: 0; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .hero-visual__cap strong { display: block; margin-top: var(--space-2); font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+
+    /* Bento trust */
+    .bento {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .bento { grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto; } }
+    .bento__cell {
+      position: relative;
+      min-height: 160px;
+      padding: var(--space-5);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+      background: var(--surface);
+    }
+    .bento__cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+    .bento__cell .bento__bg {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      opacity: 0.22;
+      transition: opacity var(--dur) var(--ease), transform 0.5s var(--ease);
+    }
+    .bento__cell:hover .bento__bg { opacity: 0.3; transform: scale(1.03); }
+    .bento__cell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.88) 55%, #fff 100%);
+      pointer-events: none;
+    }
+    .bento__cell > *:not(.bento__bg) { position: relative; z-index: 1; }
+    .bento__label { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-2); }
+    .bento__title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; margin: 0 0 var(--space-2); color: var(--ink); letter-spacing: -0.02em; }
+    .bento__sub { margin: 0; font-size: 0.875rem; color: var(--muted); line-height: 1.45; max-width: 28ch; }
+    @media (min-width: 1024px) {
+      .bento__cell--gmc { grid-column: span 2; }
+      .bento__cell--proc { grid-column: span 2; }
+    }
+
+    /* Condition rail */
+    .rail { background: var(--surface-2); border-block: 1px solid var(--line); padding: var(--space-6) 0; }
+    .rail__head { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-5); }
+    @media (min-width: 720px) { .rail__head { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+    .rail__track-wrap { position: relative; }
+    .rail__fade-l, .rail__fade-r {
+      pointer-events: none;
+      position: absolute; top: 0; bottom: 0; width: 2rem; z-index: 1;
+    }
+    .rail__fade-l { left: 0; background: linear-gradient(90deg, var(--surface-2), transparent); }
+    .rail__fade-r { right: 0; background: linear-gradient(-90deg, var(--surface-2), transparent); }
+    .rail__track {
+      display: flex;
+      gap: var(--space-2);
+      overflow-x: auto;
+      padding-bottom: var(--space-2);
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .rail__track::-webkit-scrollbar { display: none; }
+    .rail__track a {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      min-height: 48px;
+      padding: 0 var(--space-4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+    .rail__track a:hover { border-color: var(--accent); color: var(--accent); }
+    .rail__track a:active { transform: scale(0.98); }
+
+    /* Process timeline (zigzag desktop) */
+    .process-wrap { max-width: 56rem; margin-inline: auto; position: relative; }
+    .process-line {
+      position: absolute;
+      left: 15px; top: 12px; bottom: 12px;
+      width: 1px;
+      background: var(--line-strong);
+    }
+    @media (min-width: 768px) {
+      .process-line { left: 50%; transform: translateX(-50%); }
+    }
+    .process-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-7); }
+    .process-item {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .process-item { grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; }
+      .process-item--right .process-copy { grid-column: 2; text-align: right; }
+      .process-item--right .process-copy .process-inner { flex-direction: row-reverse; }
+      .process-item--right .process-spacer { grid-column: 1; grid-row: 1; }
+      .process-item--left .process-spacer { grid-column: 2; }
+    }
+    .process-inner {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .process-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--surface);
+      z-index: 2;
+    }
+    .process-step { font-size: 0.625rem; font-family: ui-monospace, monospace; color: var(--muted); margin: 0 0 var(--space-1); }
+    .process-item h3 { font-size: 1.125rem; margin: 0 0 var(--space-2); }
+    .process-item p { margin: 0; font-size: 0.9375rem; color: var(--muted); }
+    .process-spacer { display: none; min-height: 1px; }
+    @media (min-width: 768px) { .process-spacer { display: block; } }
+
+    /* Treatment bands */
+    .band {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 1024px) {
+      .band { flex-direction: row; min-height: 260px; }
+      .band--flip { flex-direction: row-reverse; }
+      .band--flip { margin-left: var(--space-6); }
+      .band:not(.band--flip) { margin-right: var(--space-6); }
+    }
+    .band__media {
+      position: relative;
+      flex: 0 0 auto;
+      height: 200px;
+      background: var(--surface-2);
+    }
+    @media (min-width: 1024px) {
+      .band__media { width: 38%; height: auto; min-height: 100%; }
+    }
+    .band__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .band__body {
+      flex: 1;
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .band__tag { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-2); }
+    .band__body h3 { font-family: var(--font-display); font-size: 1.35rem; margin: 0 0 var(--space-3); }
+    .band__body p { margin: 0 0 var(--space-4); color: var(--muted); font-size: 0.9375rem; }
+
+    /* Pricing */
+    .price-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-sm); overflow: hidden; }
+    @media (min-width: 640px) { .price-grid { grid-template-columns: repeat(3, 1fr); } }
+    .price-cell { background: var(--surface); padding: var(--space-5); }
+    .price-cell h3 { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 var(--space-3); font-family: var(--font-sans); }
+    .price-cell .amt { font-family: ui-monospace, monospace; font-size: 1.5rem; font-weight: 700; color: var(--ink); margin: 0 0 var(--space-2); }
+    .price-cell p { margin: 0; font-size: 0.8125rem; color: var(--muted); line-height: 1.45; }
+    .price-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .price-table th, .price-table td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .price-table th { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); background: var(--surface-2); }
+    .price-table td:last-child { text-align: right; font-weight: 700; font-family: ui-monospace, monospace; white-space: nowrap; }
+    .price-table small { display: block; font-weight: 400; color: var(--muted); font-size: 0.8125rem; margin-top: var(--space-1); font-family: var(--font-sans); }
+
+    /* Visit + map */
+    .visit-grid { display: grid; gap: var(--space-7); align-items: start; }
+    @media (min-width: 1024px) { .visit-grid { grid-template-columns: 1fr 1.1fr; } }
+    .map-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: var(--surface-2);
+      min-height: 240px;
+      aspect-ratio: 16/10;
+    }
+    .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Finale CTA */
+    .finale {
+      background: linear-gradient(180deg, #e6f4f2 0%, var(--surface-2) 100%);
+      border-block: 1px solid var(--line);
+      text-align: center;
+      padding: var(--space-8) 0;
+    }
+    .finale h2 { max-width: 20ch; margin-inline: auto; }
+    .finale p { max-width: 42ch; margin-inline: auto; color: var(--muted); }
+    .finale__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-top: var(--space-6); }
+    @media (max-width: 639px) {
+      .finale__actions .btn { flex: 1; min-width: 140px; }
+    }
+
+    .hero__actions .btn { width: 100%; }
+    @media (min-width: 480px) { .hero__actions .btn { width: auto; } }
+
     /* Reveal */
-    .reveal { opacity: 0; transform: translateY(12px); }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+    .reveal { opacity: 0; transform: translateY(16px); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
 
     body { padding-bottom: 76px; }
-    @media (min-width: 900px) { body { padding-bottom: 0; } }
+    @media (min-width: 1024px) { body { padding-bottom: 0; } }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
+  <div class="pre-header">
+    <div class="wrap pre-header__inner">
+      <span class="pre-header__meta">Burnley · Lancashire</span>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center">
+        <a href="tel:03337729655">0333 772 9655</a>
+        <span aria-hidden="true" style="opacity:0.35">|</span>
+        <span>Private MSK · Ultrasound on site</span>
+      </div>
+    </div>
+  </div>
+
   <header class="site-header" id="header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="#" aria-label="My MSK Clinic — MSK Clinic Dashboard home">
-        <svg class="brand__mark" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-          <rect width="40" height="40" rx="12" fill="#161412"/>
-          <path d="M11 26V14h3.2l2.9 5.1h.1L20 14h3.1v12h-2.8v-6.3h-.1l-2.2 3.9h-1.8l-2.2-3.9h-.1V26H11z" fill="#e8f5f3"/>
-          <path d="M25.5 14H29l2.5 4.4V14h2.7v12H30l-2.6-4.5V26h-2.8V14h.9z" fill="#e8f5f3" opacity=".85"/>
-        </svg>
+      <a class="brand" href="#" aria-label="MyMSK Clinic — home">
+        <span class="brand__mark" aria-hidden="true">M</span>
         <span class="brand__text">
-          <span class="brand__name">My MSK Clinic</span>
-          <span class="brand__product">MSK Clinic Dashboard</span>
-          <span class="brand__tag">Burnley · Manchester patients welcome</span>
+          <span class="brand__name">MyMSK</span>
+          <span class="brand__tag">Burnley</span>
         </span>
       </a>
       <nav class="nav-main" aria-label="Primary">
-        <a href="#pathways">How we help</a>
+        <a href="#">Home</a>
         <a href="#treatments">Treatments</a>
-        <a href="#trust">Why patients choose us</a>
-        <a href="#specialist">Specialist</a>
-        <a href="#visit">Your visit</a>
+        <a href="#process">Process</a>
+        <a href="#specialist">Dr Akhtar</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#visit">Visit</a>
         <a href="#faq">FAQ</a>
+        <a class="nav-main__demo" href="#book">Demo</a>
       </nav>
       <div class="header-actions">
         <a class="btn btn--ghost btn--sm" href="tel:03337729655" aria-label="Call My MSK Clinic on 0333 772 9655"><span class="phone-full">0333 772 9655</span><span class="phone-short">Call</span></a>
@@ -832,11 +1424,12 @@
     <div class="mobile-drawer__backdrop" id="drawerBack"></div>
     <div class="mobile-drawer__panel" role="dialog" aria-label="Menu">
       <nav aria-label="Mobile">
-        <a href="#pathways">How we help</a>
+        <a href="#">Home</a>
         <a href="#treatments">Treatments</a>
-        <a href="#trust">Why patients choose us</a>
-        <a href="#specialist">Specialist</a>
-        <a href="#visit">Your visit</a>
+        <a href="#process">Process</a>
+        <a href="#specialist">Dr Akhtar</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#visit">Visit</a>
         <a href="#faq">FAQ</a>
         <a href="#book">Book consultation</a>
       </nav>
@@ -848,13 +1441,14 @@
     <section class="hero wrap reveal" aria-labelledby="hero-title">
       <div class="hero__grid">
         <div>
-          <p class="eyebrow">Musculoskeletal clinic · Burnley</p>
-          <h1 id="hero-title">Serious relief for back, joint and muscle pain—guided with precision.</h1>
-          <p class="hero__lead">My MSK Clinic combines osteopathic assessment with modern diagnostic ultrasound and ultrasound-guided injections, so your care is clearer, more accurate, and easier to trust.</p>
+          <p class="eyebrow">MyMSK Clinic</p>
+          <h1 id="hero-title">Precision care for back, muscle &amp; joint pain.</h1>
+          <p class="hero__lead">Osteopathic assessment, on-site MSK ultrasound, and ultrasound-guided injections — so your next step is evidence-led, not guessed.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#book">Book consultation</a>
-            <a class="btn btn--ghost" href="#treatments">Explore treatments</a>
+            <a class="btn btn--ghost" href="#treatments">View treatments</a>
           </div>
+          <p style="margin-top:var(--space-4)"><a href="tel:03337729655" style="font-weight:600;font-size:0.9375rem">Speak to clinic →</a></p>
           <div class="chip-row" aria-label="Key credentials">
             <span class="chip">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -862,204 +1456,212 @@
             </span>
             <span class="chip">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-              Dual-qualified GP &amp; osteopath
+              Dual GMC &amp; GOsC registration
             </span>
             <span class="chip">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 5 2-7L3 9h7z"/></svg>
-              5.0 Google rating · 300+ reviews
+              5.0 · 300+ Google reviews
             </span>
           </div>
         </div>
-        <div class="care-panel reveal" aria-label="Care overview">
-          <div class="care-panel__top">
-            <div>
-              <p class="care-panel__title">Today in clinic</p>
-              <p class="care-panel__headline">Assessment → ultrasound clarity → informed next steps</p>
-            </div>
-            <div class="metric-pill">
-              <strong>5.0</strong>
-              <span>Google reviews</span>
-            </div>
-          </div>
-          <div class="practice-insights" aria-label="Practice operations preview">
-            <div class="practice-insights__item">
-              <span class="practice-insights__k">Missed appointments this week</span>
-              <span class="practice-insights__v">3</span>
-            </div>
-            <div class="practice-insights__item">
-              <span class="practice-insights__k">Follow-ups due</span>
-              <span class="practice-insights__v">5</span>
-            </div>
-          </div>
-          <div class="panel-grid">
-            <div class="mini-card">
-              <div class="mini-card__label">In-house imaging</div>
-              <div class="mini-card__val">MSK ultrasound on site</div>
-              <p class="mini-card__sub">See the tissues involved before deciding on injection therapy.</p>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card__label">Injection accuracy</div>
-              <div class="mini-card__val">Ultrasound-guided</div>
-              <p class="mini-card__sub">Research supports improved accuracy versus blind placement—supporting better outcomes.</p>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card__label">Next opening</div>
-              <div class="mini-card__val">Request a slot</div>
-              <p class="mini-card__sub">Tell us your main concern—we’ll guide you to the right appointment type.</p>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card__label">Locations</div>
-              <div class="mini-card__val">Burnley clinic</div>
-              <p class="mini-card__sub">Serving Lancashire and Greater Manchester.</p>
-            </div>
-          </div>
-          <div class="timeline-bar">
-            <div class="timeline-bar__steps">
-              <span class="tl-step is-active">Listen</span>
-              <span class="tl-step is-active">Assess</span>
-              <span class="tl-step is-active">Image</span>
-              <span class="tl-step">Plan</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap reveal" id="pathways" aria-labelledby="path-title">
-      <div class="section__head">
-        <p class="eyebrow">How we help</p>
-        <h2 id="path-title">Start from where it hurts—then we build a precise plan.</h2>
-        <p>Whether pain is new or years old, we focus on understanding the story, examining movement, and using ultrasound when it changes what we do next.</p>
-      </div>
-      <div class="segmented" role="tablist" aria-label="Filter by concern">
-        <button type="button" role="tab" aria-selected="true" data-filter="all" id="tab-all">All pathways</button>
-        <button type="button" role="tab" aria-selected="false" data-filter="spine" id="tab-spine">Back &amp; spine</button>
-        <button type="button" role="tab" aria-selected="false" data-filter="joint" id="tab-joint">Joints</button>
-        <button type="button" role="tab" aria-selected="false" data-filter="soft" id="tab-soft">Muscle &amp; tendon</button>
-      </div>
-      <div class="path-grid">
-        <article class="card path-card card--quiet" data-category="spine">
-          <h3>Sciatica &amp; nerve-related leg pain</h3>
-          <p>Thorough consultation, clear explanation, and imaging when it helps clarify nerve involvement—so decisions feel considered, not rushed.</p>
-        </article>
-        <article class="card path-card card--quiet" data-category="spine">
-          <h3>Neck &amp; upper back strain</h3>
-          <p>Assessment of posture, movement and tissue response—ultrasound used to support diagnosis when symptoms suggest deeper joint or soft-tissue drivers.</p>
-        </article>
-        <article class="card path-card card--quiet" data-category="joint">
-          <h3>Knee &amp; hip osteoarthritis flare-ups</h3>
-          <p>Options such as hyaluronic acid or cortisone, discussed in context of your scans, function and goals—including ultrasound-guided placement when appropriate.</p>
-        </article>
-        <article class="card path-card card--quiet" data-category="joint">
-          <h3>Shoulder pain &amp; impingement patterns</h3>
-          <p>From calcific change to rotator cuff overload—we combine manual assessment with ultrasound to align treatment with what your shoulder is actually doing.</p>
-        </article>
-        <article class="card path-card card--quiet" data-category="soft">
-          <h3>Tendon &amp; sports overload</h3>
-          <p>Running, lifting or repetitive work—we look at load, tissue health and whether PRP or guided injection therapy fits your stage of recovery.</p>
-        </article>
-        <article class="card path-card card--quiet" data-category="soft">
-          <h3>Persistent “undiagnosed” MSK pain</h3>
-          <p>If you have bounced between appointments without clarity, we prioritise listening, structured examination, and ultrasound evidence where it breaks the deadlock.</p>
-        </article>
-      </div>
-      <p style="margin-top:var(--space-5);font-size:0.9375rem;color:var(--muted);max-width:60ch">Unsure where you fit? Use the clinic’s <a href="https://mymskclinic.co.uk/where-is-your-pain/">pain locator</a>—then book a consultation to interpret findings with Dr Akhtar.</p>
-    </section>
-
-    <section class="section wrap reveal" id="treatments" aria-labelledby="treat-title">
-      <div class="section__head">
-        <p class="eyebrow">Treatments</p>
-        <h2 id="treat-title">Therapies we highlight—delivered with ultrasound guidance when indicated.</h2>
-        <p>Your plan is individual; these are core injection-led options the clinic promotes, always discussed after assessment.</p>
-      </div>
-      <div class="treat-grid">
-        <article class="card treat-card">
-          <p class="treat-card__meta">Joint support</p>
-          <h3>Hyaluronic acid</h3>
-          <p>Used to support pain relief and joint function in suitable cases—particularly when osteoarthritis affects quality of life and simpler measures are not enough.</p>
-          <a class="btn btn--ghost btn--sm" href="#book" style="margin-top:var(--space-4)">Discuss suitability</a>
-        </article>
-        <article class="card treat-card">
-          <p class="treat-card__meta">Inflammation control</p>
-          <h3>Cortisone injections</h3>
-          <p>An anti-inflammatory medicine injected into joints or targeted tissues—often considered when inflammation is driving pain and limiting recovery.</p>
-          <a class="btn btn--ghost btn--sm" href="#book" style="margin-top:var(--space-4)">Discuss suitability</a>
-        </article>
-        <article class="card treat-card">
-          <p class="treat-card__meta">Regeneration focus</p>
-          <h3>Platelet-rich plasma (PRP)</h3>
-          <p>Concentrated platelets and growth factors—used where the clinical picture supports biological support for joint and tendon recovery.</p>
-          <a class="btn btn--ghost btn--sm" href="#book" style="margin-top:var(--space-4)">Discuss suitability</a>
-        </article>
+        <figure class="hero-visual reveal" aria-label="Clinical care">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="" width="1200" height="800" loading="eager" decoding="async">
+          <figcaption class="hero-visual__cap">
+            <p>In-house capability</p>
+            <strong>Ultrasound · Guided injections · Dual registration</strong>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section wrap reveal" id="trust" aria-labelledby="trust-title">
       <div class="section__head">
-        <p class="eyebrow">Why patients trust us</p>
-        <h2 id="trust-title">Clarity first. Precision when it matters. Care that feels human.</h2>
+        <p class="eyebrow">Trust</p>
+        <h2 id="trust-title">Credentials &amp; capability, without the noise.</h2>
       </div>
-      <div class="trust-grid">
-        <article class="card">
-          <h3>Evidence-led injection placement</h3>
-          <p>Ultrasound-guided injections are often more accurate than blind techniques—accuracy matters for comfort, safety and the chance of a successful outcome.</p>
-        </article>
-        <article class="card">
-          <h3>Two lenses on the same problem</h3>
-          <p>As a GMC-registered doctor and GOsC-registered osteopath, Dr Akhtar bridges medical assessment with hands-on MSK expertise—so explanations land with both depth and practicality.</p>
-        </article>
-        <article class="card">
-          <h3>A calm, modern clinic environment</h3>
-          <p>Patients repeatedly describe the space as clean, calm and professional—an environment designed to reduce anxiety before procedures.</p>
-        </article>
-        <article class="card">
-          <h3>Transparent next steps</h3>
-          <p>From your first consultation you should leave understanding what was found, what options mean, and what happens if symptoms change.</p>
-        </article>
+      <div class="bento">
+        <a class="bento__cell bento__cell--gmc" href="https://www.gmc-uk.org/" target="_blank" rel="noopener noreferrer">
+          <img class="bento__bg" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <p class="bento__label">Regulation</p>
+          <h3 class="bento__title">GMC · GOsC</h3>
+          <p class="bento__sub">Dual-registered — verify anytime.</p>
+        </a>
+        <a class="bento__cell" href="https://maps.google.com/?cid=9988807352140178415" target="_blank" rel="noopener noreferrer">
+          <img class="bento__bg" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <p class="bento__label">Patients</p>
+          <h3 class="bento__title">5.0</h3>
+          <p class="bento__sub">300+ Google reviews</p>
+        </a>
+        <a class="bento__cell" href="#process">
+          <img class="bento__bg" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <p class="bento__label">Imaging</p>
+          <h3 class="bento__title">MSK ultrasound</h3>
+          <p class="bento__sub">On-site, same visit when needed.</p>
+        </a>
+        <a class="bento__cell bento__cell--proc" href="#treatments">
+          <img class="bento__bg" src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="" width="1000" height="667" loading="lazy" decoding="async">
+          <p class="bento__label">Procedures</p>
+          <h3 class="bento__title">Ultrasound-guided injections</h3>
+          <p class="bento__sub">Accuracy where it matters for comfort and outcome.</p>
+        </a>
       </div>
     </section>
 
-    <section class="section wrap reveal" id="specialist" aria-labelledby="spec-title">
-      <div class="section__head">
-        <p class="eyebrow">Meet the specialist</p>
-        <h2 id="spec-title">Dr Akhtar—dual certification you can verify.</h2>
-      </div>
-      <div class="spec-layout">
-        <div class="spec-visual">
-          <div class="spec-badge">
-            <dl>
-              <div>
-                <dt>Registration</dt>
-                <dd>GMC-registered medical doctor · GOsC-registered osteopath</dd>
-              </div>
-              <div>
-                <dt>Training</dt>
-                <dd>Medical degree, University of Sheffield (2007)<br>Osteopathy, London College of Osteopathic Medicine (2017)</dd>
-              </div>
-              <div>
-                <dt>Clinical focus</dt>
-                <dd>Manual therapy, osteopathic techniques, MSK ultrasound &amp; injection-led care</dd>
-              </div>
-            </dl>
+    <section class="rail reveal" aria-labelledby="rail-title">
+      <div class="wrap">
+        <div class="rail__head">
+          <div>
+            <p class="eyebrow" id="rail-title">Where it hurts</p>
+            <h2 style="margin:0;font-family:var(--font-display);font-size:clamp(1.35rem,2.5vw,1.75rem);letter-spacing:-0.03em">Find your starting point</h2>
+          </div>
+          <p style="margin:0;max-width:36ch;font-size:0.9375rem;color:var(--muted)">Every pathway begins with assessment — these labels help you orient before you book.</p>
+        </div>
+        <div class="rail__track-wrap">
+          <div class="rail__fade-l" aria-hidden="true"></div>
+          <div class="rail__fade-r" aria-hidden="true"></div>
+          <div class="rail__track">
+            <a href="#treatments">Back &amp; spine</a>
+            <a href="#treatments">Neck &amp; upper back</a>
+            <a href="#treatments">Joint pain / OA</a>
+            <a href="#treatments">Shoulder</a>
+            <a href="#treatments">Sports &amp; tendon</a>
+            <a href="#treatments">Sciatica</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="process" aria-labelledby="process-title">
+      <div class="section__head">
+        <p class="eyebrow">Process</p>
+        <h2 id="process-title">How we work — calm, structured, thorough.</h2>
+      </div>
+      <div class="process-wrap">
+        <div class="process-line" aria-hidden="true"></div>
+        <ol class="process-list">
+          <li class="process-item process-item--left">
+            <div class="process-spacer" aria-hidden="true"></div>
+            <div class="process-copy">
+              <div class="process-inner">
+                <span class="process-num">1</span>
+                <div>
+                  <p class="process-step">01</p>
+                  <h3>Consultation &amp; history</h3>
+                  <p>We map symptoms, triggers, and what matters to you day to day.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="process-item process-item--right">
+            <div class="process-spacer" aria-hidden="true"></div>
+            <div class="process-copy">
+              <div class="process-inner">
+                <span class="process-num">2</span>
+                <div>
+                  <p class="process-step">02</p>
+                  <h3>Hands-on assessment</h3>
+                  <p>Movement, strength, and tissue response — always with respect for comfort.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="process-item process-item--left">
+            <div class="process-spacer" aria-hidden="true"></div>
+            <div class="process-copy">
+              <div class="process-inner">
+                <span class="process-num">3</span>
+                <div>
+                  <p class="process-step">03</p>
+                  <h3>Ultrasound when it changes care</h3>
+                  <p>On-site imaging to clarify structures and plan injections if appropriate.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="process-item process-item--right">
+            <div class="process-spacer" aria-hidden="true"></div>
+            <div class="process-copy">
+              <div class="process-inner">
+                <span class="process-num">4</span>
+                <div>
+                  <p class="process-step">04</p>
+                  <h3>Shared plan &amp; follow-up</h3>
+                  <p>Options, risks, and benefits in plain English — plus GP letters when needed.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="treatments" aria-labelledby="treat-title" style="background:var(--surface-2);margin:0;border:0">
+      <div class="section__head">
+        <p class="eyebrow">Treatments</p>
+        <h2 id="treat-title">Injection-led options — individual to you.</h2>
+        <p>Nothing is “off the shelf.” Suitability depends on examination, history, and shared decision-making.</p>
+      </div>
+      <article class="band reveal">
+        <div class="band__media">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
+        </div>
+        <div class="band__body">
+          <p class="band__tag">Joint support</p>
+          <h3>Hyaluronic acid</h3>
+          <p>May help pain and function in suitable osteoarthritis — discussed in context of your scans and goals.</p>
+          <a class="btn btn--ghost btn--sm" href="#book">Discuss suitability →</a>
+        </div>
+      </article>
+      <article class="band band--flip reveal">
+        <div class="band__media">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
+        </div>
+        <div class="band__body">
+          <p class="band__tag">Inflammation</p>
+          <h3>Cortisone injections</h3>
+          <p>Targeted anti-inflammatory treatment when inflammation is driving pain and limiting recovery.</p>
+          <a class="btn btn--ghost btn--sm" href="#book">Discuss suitability →</a>
+        </div>
+      </article>
+      <article class="band reveal">
+        <div class="band__media">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" width="900" height="600" loading="lazy" decoding="async">
+        </div>
+        <div class="band__body">
+          <p class="band__tag">Advanced options</p>
+          <h3>PRP · Prolotherapy · Spinal injections</h3>
+          <p>Including platelet-rich plasma, prolotherapy, and spinal procedures where the clinical picture supports them — always after assessment.</p>
+          <a class="btn btn--ghost btn--sm" href="#book">Discuss suitability →</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section wrap reveal" id="specialist" aria-labelledby="spec-title">
+      <div class="spec-layout" style="margin-top:var(--space-2)">
+        <figure class="spec-visual" style="position:relative;display:flex;flex-direction:column;padding:0;min-height:280px;max-height:520px;overflow:hidden;border-radius:var(--radius-lg)">
+          <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="" width="900" height="1100" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(255,255,255,0.92) 100%)"></div>
+          <figcaption class="spec-badge" style="position:relative;margin:var(--space-5);margin-top:auto;align-self:flex-end">
+            <p style="margin:0;font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Dr Akhtar</p>
+            <p style="margin:var(--space-2) 0 0;font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--ink)">Dual-qualified GP &amp; osteopath</p>
+          </figcaption>
+        </figure>
         <div>
-          <p>Patients come to My MSK Clinic when they want someone to take symptoms seriously, explain imaging in plain language, and offer advanced options without losing a grounded, respectful bedside manner.</p>
+          <p class="eyebrow">Specialist</p>
+          <h2 id="spec-title">Medicine and osteopathy — one coherent plan.</h2>
+          <blockquote style="margin:var(--space-5) 0;padding-left:var(--space-4);border-left:3px solid var(--accent);font-size:1.05rem;font-weight:500;color:var(--ink)">Two lenses on the same problem — depth you can verify on GMC and GOsC registers.</blockquote>
+          <p>Medical degree, University of Sheffield (2007). Osteopathy, London College of Osteopathic Medicine (2017). Manual therapy, MSK ultrasound, and injection-led care when it is the right tool.</p>
           <ul class="cred-list">
             <li>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Long, unhurried consultations when complexity needs time
+              Ultrasound supports diagnosis — not used as a sales prop
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Ultrasound used to support diagnosis—not as a sales tool
-            </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Referral onward when surgery or another specialist is the better answer
+              Referral onward when surgery or another specialist is appropriate
             </li>
           </ul>
-          <a class="btn btn--ghost" href="mailto:admin@mymskclinic.co.uk">Email the clinic</a>
+          <a class="btn btn--primary" href="#book">Book with Dr Akhtar</a>
         </div>
       </div>
     </section>
@@ -1090,27 +1692,70 @@
       <p style="margin-top:var(--space-5)"><a class="btn btn--ghost btn--sm" href="https://maps.google.com/?cid=9988807352140178415">Read more on Google</a></p>
     </section>
 
-    <section class="section wrap reveal" id="visit" aria-labelledby="visit-title">
+    <section class="section wrap reveal" id="pricing" aria-labelledby="price-title">
       <div class="section__head">
-        <p class="eyebrow">Your visit</p>
-        <h2 id="visit-title">What to expect—four calm steps.</h2>
+        <p class="eyebrow">Pricing</p>
+        <h2 id="price-title">Clear guide fees — confirmed after your assessment.</h2>
+        <p>Burnley guide fees from the public schedule. Final cost is confirmed after examination. See <a href="https://mymskclinic.co.uk/pricing/" target="_blank" rel="noopener noreferrer">mymskclinic.co.uk/pricing</a> for updates.</p>
       </div>
-      <div class="journey">
-        <div class="journey-step card card--quiet" data-step="01">
-          <h3>Consultation &amp; history</h3>
-          <p style="margin:0;font-size:0.9375rem;color:var(--muted)">We map symptoms, triggers, work and activity demands—so nothing important is missed.</p>
+      <div class="price-grid reveal">
+        <div class="price-cell">
+          <h3>Initial consultation (doctor)</h3>
+          <p class="amt">£150</p>
+          <p>Typically 45–60 minutes, including examination and ultrasound if clinically required.</p>
         </div>
-        <div class="journey-step card card--quiet" data-step="02">
-          <h3>Physical assessment</h3>
-          <p style="margin:0;font-size:0.9375rem;color:var(--muted)">Movement, strength and tissue response—always with professionalism and respect for your comfort.</p>
+        <div class="price-cell">
+          <h3>Doctor follow-up</h3>
+          <p class="amt">£125</p>
+          <p>30–45 minutes for review and ongoing care planning.</p>
         </div>
-        <div class="journey-step card card--quiet" data-step="03">
-          <h3>Ultrasound when it changes care</h3>
-          <p style="margin:0;font-size:0.9375rem;color:var(--muted)">On-site imaging to clarify structures involved and guide injection planning if that is the next step.</p>
+        <div class="price-cell">
+          <h3>Ultrasound-guided cortisone</h3>
+          <p class="amt">from £275</p>
+          <p>Consultation and scan when required; non-spinal joints and suitable soft-tissue targets.</p>
         </div>
-        <div class="journey-step card card--quiet" data-step="04">
-          <h3>Shared decision &amp; follow-up</h3>
-          <p style="margin:0;font-size:0.9375rem;color:var(--muted)">Options, risks and benefits in plain English—plus documentation to your GP when appropriate.</p>
+      </div>
+      <div style="overflow:auto;margin-top:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-sm)">
+        <table class="price-table">
+          <thead>
+            <tr><th>Service</th><th>Guide fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Osteopath (60 min)<small>Assessment and treatment</small></td><td>£150</td></tr>
+            <tr><td>Hyaluronic acid (ultrasound-guided)<small>Ostenil / Durolane; consultation inclusive</small></td><td>£350 – £425</td></tr>
+            <tr><td>Achilles tendonitis injection</td><td>£299</td></tr>
+            <tr><td>Frozen shoulder (hydrodilatation)</td><td>£350</td></tr>
+            <tr><td>Back / spinal injection<small>Depends on examination</small></td><td>£250 – £300</td></tr>
+            <tr><td>Caudal epidural</td><td>£400</td></tr>
+            <tr><td>PRP</td><td>£400</td></tr>
+            <tr><td>Prolotherapy<small>Per treatment; course of 3 total £825</small></td><td>£275</td></tr>
+            <tr><td>Arthrosamid</td><td>Please enquire</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:var(--space-4);font-size:0.8125rem;color:var(--muted);max-width:70ch">Cancellation: at least 24 hours’ notice or the full fee may apply. Missed appointments with no notice may not be rearranged.</p>
+      <a class="btn btn--ghost" href="https://mymskclinic.co.uk/pricing/" target="_blank" rel="noopener noreferrer" style="margin-top:var(--space-4)">Official fee schedule →</a>
+    </section>
+
+    <section class="section wrap reveal" id="visit" aria-labelledby="visit-title">
+      <div class="visit-grid">
+        <div>
+          <p class="eyebrow">Visit</p>
+          <h2 id="visit-title">Burnley clinic</h2>
+          <address style="font-style:normal;line-height:1.65;color:var(--muted);margin:var(--space-4) 0">
+            <strong style="color:var(--ink)">MyMSK Clinic</strong><br>
+            1A Parker Street<br>
+            Burnley, Lancashire BB11 1AU<br>
+            United Kingdom
+          </address>
+          <p style="font-size:0.9375rem;color:var(--muted)">Town-centre access. For Manchester and other locations see <a href="https://mymskclinic.co.uk/contact-us/" target="_blank" rel="noopener noreferrer">contact</a>.</p>
+          <a class="btn btn--primary" href="https://maps.google.com/?cid=9988807352140178415" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        </div>
+        <div>
+          <div class="map-frame">
+            <iframe title="MyMSK Clinic Burnley on Google Maps" src="https://maps.google.com/maps?q=1A%20Parker%20Street%2C%20Burnley%20BB11%201AU%2C%20UK&amp;hl=en&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+          <p style="margin-top:var(--space-3);text-align:center;font-size:0.75rem;color:var(--muted)">Map data © Google · Pin is approximate.</p>
         </div>
       </div>
     </section>
@@ -1261,6 +1906,15 @@
         </div>
       </div>
     </section>
+
+    <section class="finale wrap reveal" aria-labelledby="finale-title">
+      <h2 id="finale-title">Ready for a clearer next step?</h2>
+      <p>Book a consultation or speak to the clinic today.</p>
+      <div class="finale__actions">
+        <a class="btn btn--primary" href="#book">Book consultation</a>
+        <a class="btn btn--ghost" href="tel:03337729655">Call 0333 772 9655</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -1281,6 +1935,7 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="https://mymskclinic.co.uk/">Live website</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="https://mymskclinic.co.uk/where-is-your-pain/">Pain locator</a></li>
           <li><a href="#book">Book consultation</a></li>
         </ul>
@@ -1326,12 +1981,17 @@
       var drawerBack = document.getElementById('drawerBack');
       var fabWrap = document.getElementById('fabWrap');
       var fabBtn = document.getElementById('fabBtn');
+      var drawerOpen = false;
+      var lastScrollY = 0;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function setDrawer(open) {
+        drawerOpen = open;
         drawer.classList.toggle('is-open', open);
         drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
         menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.style.overflow = open ? 'hidden' : '';
+        if (open) header.classList.remove('is-header-hidden');
       }
       menuBtn.addEventListener('click', function () { setDrawer(!drawer.classList.contains('is-open')); });
       drawerBack.addEventListener('click', function () { setDrawer(false); });
@@ -1353,23 +2013,17 @@
       });
 
       window.addEventListener('scroll', function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 8);
+        var y = window.scrollY;
+        header.classList.toggle('is-scrolled', y > 8);
+        if (reduceMotion || drawerOpen) return;
+        if (y < 72) {
+          header.classList.remove('is-header-hidden');
+          lastScrollY = y;
+          return;
+        }
+        header.classList.toggle('is-header-hidden', y > lastScrollY);
+        lastScrollY = y;
       }, { passive: true });
-
-      /* Pathway filter */
-      var tabs = document.querySelectorAll('.segmented [role="tab"]');
-      var cards = document.querySelectorAll('.path-card');
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          var f = tab.getAttribute('data-filter');
-          tabs.forEach(function (t) { t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
-          cards.forEach(function (c) {
-            var cat = c.getAttribute('data-category');
-            if (f === 'all' || cat === f) c.classList.remove('is-hidden');
-            else c.classList.add('is-hidden');
-          });
-        });
-      });
 
       /* FAQ */
       document.querySelectorAll('.faq-item').forEach(function (item) {
@@ -1434,7 +2088,7 @@
           ents.forEach(function (en) {
             if (en.isIntersecting) en.target.classList.add('is-visible');
           });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.15, rootMargin: '0px 0px -32px 0px' });
         revs.forEach(function (el) { io.observe(el); });
       } else {
         document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
